@@ -3,6 +3,7 @@ session_start();
 
 include("connection.php");
 
+// ADDPRODOTTO -> pagina per l'admin
 $IDSession = 1;
 
 //Magari se non ha fatto la login fa mettere gli articoli e basta in base al session ID
@@ -17,6 +18,10 @@ if (isset($_SESSION["id"]) && $_SESSION["id"]!=0) {
 
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="stylesheet" href="style.css">
+
+</head>
 
 <body>
     <br><form action="addItemSQL.php" method="post" enctype="multipart/form-data">

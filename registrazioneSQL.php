@@ -71,6 +71,10 @@ if($checkInput){ // Se non ha messo caratteri strani crea il record
   // TODO //
   // V cambiare V
   //$sql = "INSERT INTO dipendente(Cognome, Qualifica, Livello, AnnoPromozione, CodiceReparto) VALUES ('$cognome','$qualifica','$livello','$anno','$codice')"; 
+  
+  // TODO 
+  // aggiungere anche il carrello, solo dopo aver creato questo VV, così IDCarello = IDUtente
+  // oppure crearlo al primo oggetto che viene aggiunto
   $sql = "INSERT INTO utente(Nome,Cognome,username,password) VALUES ('$nome','$cognome','$username','$password')";
 
   if ($conn->query($sql) === TRUE) {

@@ -29,9 +29,10 @@ if (isset($_SESSION["id"])) {
 
         <?php
 
+        echo "<br> Buongiorno "; 
         if ($IDSession == 0) { // admin
-            echo "<br>Buongiorno ADMIN";
-            echo '<br><a href="addItem.php">Aggiungi cose</a>';
+            echo "ADMIN";
+            echo '<br><a href="addProdotto.php">Aggiungi cose</a>';
             // Link per aggiungere oggetti disponibile solo all'admin
         }
         ?>
@@ -58,7 +59,10 @@ if (isset($_SESSION["id"])) {
 
             echo '<p class="desc">' . $row["Descrizione"] . "</p>";
 
-            $id = $row["IDProdotto"];
+            $id = $row["IDProdotto"]; 
+
+            // TODO //
+            // VEDERE SE HO I FILE NELLA CHIAVETTA, SENNò LO DEVO FARE DA CAPO
             echo "<a href='addItemSQL.php?idArticolo=$id'> Aggiungi al carrello" . "</a>";
             echo "</div>";
         }

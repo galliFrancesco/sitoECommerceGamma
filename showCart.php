@@ -10,10 +10,6 @@ if (isset($_SESSION["id"])) {
     $IDSession = $_SESSION["id"];
 }
 
-
-
-
-
 // UPDATE `contiene` SET `IDCarrello` = '1' WHERE `contiene`.`ID` = 2; 
 
 ?>
@@ -28,13 +24,12 @@ if (isset($_SESSION["id"])) {
 
     <div class="navBar">
 
-        <p><a href="index.php">TORNA INDIETRO</a></p>   
+        <p><a href="index.php">TORNA INDIETRO</a></p>
 
         <?php
 
-        if ($IDSession == 0){ // admin
+        if ($IDSession == 0) { // admin
             echo "<br>Buongiorno ADMIN";
-            
         }
 
         ?>
