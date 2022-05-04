@@ -30,7 +30,7 @@ if (isset($_SESSION["id"]) && $_SESSION["id"] == "") {
             <br> Ripeti Password <input type="password" name="pass2">
             
             <br><br><button type="submit">INSERISCI UTENTE </button>
-            <p> TORNA ALLA HOME <a href="home.php"> qui </a></p>
+            <p> TORNA ALLA HOME <a href="index.php"> qui </a></p>
     </div>
     </form>
 </body>
