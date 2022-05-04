@@ -41,8 +41,10 @@
         if(isset($_POST["quantita"]))
         $quantita = $_POST["quantita"];
 
+    // ------------------
     // TODO //
     // CONTROLLO CHE I CAMPI NON SIANO VUOTI, ALTRIMENTI MANDA DI NUOVO ALL'AGGIUNTA
+    // ------------------
 
     // INSERT INTO articoli (Titolo, Descrizione, Venditore, Prezzo, Quantità, imagePath) VALUES ("CIAO", "un ciao", 2 , 30, 2, "immagina")
     $sql= "INSERT INTO articoli (Titolo, Descrizione, Venditore, Prezzo, Quantità, imagePath) VALUES ($titolo, $descrizione, $venditore, $prezzo, $quantita, $target_file)";

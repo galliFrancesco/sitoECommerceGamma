@@ -32,7 +32,7 @@ if (isset($_SESSION["id"])) {
         if ($IDSession == 0) { // admin
             echo "<br>Buongiorno ADMIN";
             echo '<br><a href="addItem.php">Aggiungi cose</a>';
-            // Link per aggiungere cose
+            // Link per aggiungere oggetti disponibile solo all'admin
         }
         ?>
     </div>
@@ -54,7 +54,7 @@ if (isset($_SESSION["id"])) {
 
             // uploads\Legosi.jpg
 
-            echo "<br><img class='immagine' src='uploads/". $titolo . "'> ";
+            echo "<br><img class='immagine' src='uploads/" . $titolo . "'> ";
 
             echo '<p class="desc">' . $row["Descrizione"] . "</p>";
 
@@ -69,17 +69,10 @@ if (isset($_SESSION["id"])) {
     }
     ?>
 
-    <!--
-    <div class="container articolo">
-
-        <a href="login.php">LOGIN</a>
-        <a href="showCart.php"> CARRELLO </a>
-    </div>
+    <!-- GRAZIE TITA <3-->
     <div class="ty">
         Grazie @Tita_Croft :3
     </div>
-    -->
-
 </body>
 
 </html>
