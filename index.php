@@ -31,6 +31,7 @@ if (isset($_SESSION["id"])) {
 
         if ($IDSession == 0) { // admin
             echo "<br>Buongiorno ADMIN";
+            echo '<br><a href="addItem.php">Aggiungi cose</a>';
             // Link per aggiungere cose
         }
         ?>
@@ -49,7 +50,11 @@ if (isset($_SESSION["id"])) {
 
             echo $row["Titolo"];
 
-            echo '<br><img class="immagine" src="uploads\Legosi.jpg">';
+            $titolo = $row["imagePath"];
+
+            // uploads\Legosi.jpg
+
+            echo "<br><img class='immagine' src='uploads/". $titolo . "'> ";
 
             echo '<p class="desc">' . $row["Descrizione"] . "</p>";
 

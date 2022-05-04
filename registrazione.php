@@ -23,13 +23,13 @@ if (isset($_SESSION["id"]) && $_SESSION["id"] == "") {
 
             <!-- nome, cognome, username, password  -->
 
-            <br>Nome <input type="text">
-            <br> Cognome <input type="text">
-            <br> Username <input type="text">
-            <br> Password <input type="password">
-            <br> Ripeti Password <input type="password">
+            <br> Nome <input type="text" name="nome">
+            <br> Cognome <input type="text" name="cog">
+            <br> Username <input type="text" name="user">
+            <br> Password <input type="password" name="pass">
+            <br> Ripeti Password <input type="password" name="pass2">
             
-            <br><br><button type="submit">INSERISCI DIPENDENTE </button>
+            <br><br><button type="submit">INSERISCI UTENTE </button>
             <p> TORNA ALLA HOME <a href="home.php"> qui </a></p>
     </div>
     </form>

@@ -4,21 +4,64 @@
 
     $IDSession = 1; 
 
-    if (isset($_SESSION["id"])) {
-        $IDSession = $_SESSION["id"];
+    if (isset($_SESSION["id"]) && $_SESSION["id"]!=0) {
+        header("location:index.php"); 
     }
 
-    // prende le cose dalla main page e lo mette nella tabella del carrello
-    // magari passo le cose tramite session o query
+    // FILE //
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
-    $IDA = $_GET['idArticolo']; // prende l'ID della casa passato tramite il link
-    //echo $IDA; // gli passa il numero dell'articolo
+    //echo $target_file ; // <---- PRENDE IL NOME DEL FILE
 
     
-    $sql= "INSERT INTO contiene (IDProdotto, IDCarrello) VALUES ($IDA, $IDSession)";
+    // FINE FILE //
 
+    // prende le altre cose 
+    $titolo = ""; 
+    $descrizione = ""; 
+    $venditore = 0;  
+    $prezzo = 0;  
+    $quantita = 0;
+
+    if(isset($_POST["titolo"]))
+        $titolo = $_POST["titolo"];
+    
+    if(isset($_POST["descrizione"]))
+        $descrizione = $_POST["descrizione"];
+
+    if(isset($_POST["venditore"]))
+        $venditore = $_POST["venditore"];
+
+    if(isset($_POST["prezzo"]))
+        $prezzo = $_POST["prezzo"];
+
+        if(isset($_POST["quantita"]))
+        $quantita = $_POST["quantita"];
+
+    // TODO //
+    // CONTROLLO CHE I CAMPI NON SIANO VUOTI, ALTRIMENTI MANDA DI NUOVO ALL'AGGIUNTA
+
+    // INSERT INTO articoli (Titolo, Descrizione, Venditore, Prezzo, Quantità, imagePath) VALUES ("CIAO", "un ciao", 2 , 30, 2, "immagina")
+    $sql= "INSERT INTO articoli (Titolo, Descrizione, Venditore, Prezzo, Quantità, imagePath) VALUES ($titolo, $descrizione, $venditore, $prezzo, $quantita, $target_file)";
+
+    
     if ($conn->query($sql) === TRUE) {
-        header("location:index.php");  
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+            header("location:index.php"); 
+            //echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+            echo "tutto a post"; 
+        }
+        header("location:addItem.php");  
+        echo "quasi"; 
     }
 
-?>
+    echo "no"; 
+
+
+    //if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        //header("location:index.php"); 
+        //echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+    //}

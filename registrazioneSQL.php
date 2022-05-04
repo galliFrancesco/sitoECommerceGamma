@@ -7,72 +7,74 @@ include("connection.php");
 $checkInput = true; 
 
 // Valori presi dai box
+$nome = "";
 $cognome = "";
-$qualifica = "";
-$livello = "";
-$anno = "";
-$codice = "";
-
+$username = "";
+$password = "";
+$password2 = "";
 
 // Controllo sugli input
 // !VALORI VUOTI
-if(isset($_GET["cogn"]) && $_GET["cogn"] != "")
-  $cognome = $_GET["cogn"];
+// NOME
+if(isset($_GET["nome"]) && $_GET["nome"] != "")
+  $nome = $_GET["nome"];
+else 
+  $checkInput = false; 
+// COGNOME
+if(isset($_GET["cog"]) && $_GET["cog"] != "")
+  $cognome = $_GET["cog"];
+else 
+  $checkInput = false; 
+//USERNAME
+if(isset($_GET["user"]) && $_GET["user"] != "")
+  $username = $_GET["user"];
+else 
+  $checkInput = false; 
+//PASSWORD
+if(isset($_GET["pass"]) && $_GET["pass"] != "")
+  $password = $_GET["pass"];
+else 
+  $checkInput = false; 
+//PASSWORD2
+if(isset($_GET["pass2"]) && $_GET["pass2"] != "")
+  $password2 = $_GET["pass2"];
 else 
   $checkInput = false; 
 
-// Qualifica
-if(isset($_GET["quali"]) && $_GET["quali"] != "")
-  $qualifica = $_GET["quali"];
-else 
-  $checkInput = false; 
-// LIVELLO
-if(isset($_GET["liv"]) && $_GET["liv"] != "")
-  $livello = $_GET["liv"];
-else 
-  $checkInput = false; 
-
-  // Anno Promozione
-if(isset($_GET["anno"]) && $_GET["anno"] != "")
-  $anno = $_GET["anno"];
-else 
-  $checkInput = false; 
-
-  // Codice Reparto
-if(isset($_GET["cod"]) && $_GET["cod"] != "")
-  $codice = $_GET["cod"];
-else 
-  $checkInput = false; 
-
+//PASS=PASS2
+if($password!=$password2)
+  $checkInput = false;
 
 // Prima di fare la query controllo che non ci siano caratteri strani(NO SQLInjection D:)
 // Cioè inserimento di ' e " e ,
-if (strpos($cognome, '"') !== false || strpos($cognome, ',') !== false || strpos($cognome, "'") !== false) {
+if (strpos($nome, '"') !== false || strpos($nome, ',') !== false || strpos($nome, "'") !== false) {
   $checkInput = false; 
 }
 // QULIFICA
-if (strpos($qualifica, '"') !== false || strpos($qualifica, ',') !== false || strpos($qualifica, "'") !== false) {
+if (strpos($cognome, '"') !== false || strpos($cognome, ',') !== false || strpos($cognome, "'") !== false) {
   $checkInput = false; 
 }
 //
-if (strpos($livello, '"') !== false || strpos($livello, ',') !== false || strpos($livello, "'") !== false) {
+if (strpos($username, '"') !== false || strpos($username, ',') !== false || strpos($username, "'") !== false) {
   $checkInput = false; 
 }
 //
-if (strpos($anno, '"') !== false || strpos($anno, ',') !== false || strpos($anno, "'") !== false) {
+if (strpos($password, '"') !== false || strpos($password, ',') !== false || strpos($password, "'") !== false) {
   $checkInput = false; 
 }
 //
-if (strpos($codice, '"') !== false || strpos($codice, ',') !== false || strpos($codice, "'") !== false) {
+if (strpos($password2, '"') !== false || strpos($password2, ',') !== false || strpos($password2, "'") !== false) {
   $checkInput = false; 
 }
 
 if($checkInput){ // Se non ha messo caratteri strani crea il record
-
-  $sql = "INSERT INTO dipendente(Cognome, Qualifica, Livello, AnnoPromozione, CodiceReparto) VALUES ('$cognome','$qualifica','$livello','$anno','$codice')"; 
+  // TODO //
+  // V cambiare V
+  //$sql = "INSERT INTO dipendente(Cognome, Qualifica, Livello, AnnoPromozione, CodiceReparto) VALUES ('$cognome','$qualifica','$livello','$anno','$codice')"; 
+  $sql = "INSERT INTO utente(Nome,Cognome,username,password) VALUES ('$nome','$cognome','$username','$password')";
 
   if ($conn->query($sql) === TRUE) {
-      header("location:home.php?Message=I Dati sono stati inseriti!");  
+      header("location:index.php");  
     } else {
       header("location:registrazione.php?Message=Errore  connessione D:");
   }
@@ -80,4 +82,3 @@ if($checkInput){ // Se non ha messo caratteri strani crea il record
   // Altrimenti messaggio di errore 
   header("location:registrazione.php?Message=Valori non validi");
 }
-?>
