@@ -52,15 +52,14 @@ $result = $conn->query($sqlUser);
 
 if ($result->num_rows > 0) {
 
-  echo $nome . "<br><br>";
+  //echo $username . "<br><br>";
 
   while ($row = $result->fetch_assoc()) {
     //echo $row["username"]; // prende tutti gli user
     $DBUser = $row["username"];
-    echo $DBUser. "<br>";
+    //echo $DBUser. "<br>";
     
-
-    if($nome == $DBUser){ // se un nome è uguale
+    if($username == $DBUser){ // se un nome è uguale
       $checkInput = false; 
     }
   }
@@ -97,13 +96,14 @@ if ($checkInput) { // Se non ha messo caratteri strani crea il record
   // TODO 
   // aggiungere anche il carrello, solo dopo aver creato questo VV, così IDCarello = IDUtente
   $sql = "INSERT INTO utente(Nome,Cognome,username,password) VALUES ('$nome','$cognome','$username','$password')";
+  // oppure lo faccio in una pagina a parte
 
   if ($conn->query($sql) === TRUE) {
-    //header("location:index.php");  
+    $_SESSION["username"] = $username; 
 
-    $sql1 = "SELECT * FROM utente";
+    header("location:addCart.php");  
   } else {
-    //header("location:registrazione.php?Message=Errore  connessione D:");
+    header("location:registrazione.php?Message=Errore  connessione D:");
   }
 
 } else {

@@ -16,7 +16,6 @@ if (isset($_SESSION["id"])) {
 
 <head>
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
@@ -28,8 +27,8 @@ if (isset($_SESSION["id"])) {
         <a href="showCart.php"> CARRELLO </a>
 
         <?php
+        echo "<br> Buongiorno ";
 
-        echo "<br> Buongiorno "; 
         if ($IDSession == 0) { // admin
             echo "ADMIN";
             echo '<br><a href="addProdotto.php">Aggiungi cose</a>';
@@ -59,7 +58,7 @@ if (isset($_SESSION["id"])) {
 
             echo '<p class="desc">' . $row["Descrizione"] . "</p>";
 
-            $id = $row["IDProdotto"]; 
+            $id = $row["IDProdotto"];
 
             // TODO //
             // VEDERE SE HO I FILE NELLA CHIAVETTA, SENNò LO DEVO FARE DA CAPO
