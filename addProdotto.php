@@ -24,7 +24,7 @@ if (isset($_SESSION["id"]) && $_SESSION["id"]!=0) {
 </head>
 
 <body>
-    <br><form action="addItemSQL.php" method="post" enctype="multipart/form-data">
+    <br><form action="addProdottoSQL.php" method="post" enctype="multipart/form-data">
 
         <br>Titolo<input type="text" name="titolo">
         <br>Descrizione oggetto<input type="text" name="descrizione">
