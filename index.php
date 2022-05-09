@@ -27,11 +27,12 @@ if (isset($_SESSION["id"])) {
         <a href="showCart.php"> CARRELLO </a>
 
         <?php
+        echo $IDSession;
         echo "<br> Buongiorno ";
 
         if ($IDSession == 0) { // admin
             echo "ADMIN";
-            echo '<br><a href="addProdotto.php">Aggiungi cose</a>';
+            echo '<br><a href="addProdotto.php">Aggiungi Prodotti alla lista</a>';
             // Link per aggiungere oggetti disponibile solo all'admin
         }
         ?>
@@ -50,29 +51,31 @@ if (isset($_SESSION["id"])) {
 
             echo $row["Titolo"];
 
-            if ($IDSession == 0) { // admin
-                echo " REMOVE ME, Admin Senpai ";
-            }
+
 
             $immagine = $row["imagePath"];
             // uploads\Legosi.jpg
 
             echo "<br><img class='immagine' src='" . $immagine . "'> ";
 
-            
+
             echo '<p class="desc">' . $row["Descrizione"] . "</p>";
 
             $id = $row["IDProdotto"];
 
 
             // UPDATE `articoli` SET `imagePath` = 'uploads/banana.png' WHERE `articoli`.`IDProdotto` = 1;
-            $quantita = $row["Quantità"]; 
-            echo "Quantità rimaste: " . $quantita; 
-            if($quantita != 0)
+            $quantita = $row["Quantità"];
+            echo "Quantità rimaste: " . $quantita;
+            if ($quantita != 0)
                 echo "<br><a href='addItemSQL.php?idArticolo=$id'> Aggiungi al carrello" . "</a>";
-            else 
-                echo "<br><br><a>Non ci sono abbastanza oggetti</a>"; 
+            else
+                echo "<br><br><a>Non ci sono abbastanza oggetti</a>";
 
+            // 
+            if ($IDSession == 0) { // admin
+                echo "<br><br> modify me senpai ";
+            }
             echo "</div>";
         }
     } else {

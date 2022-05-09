@@ -42,9 +42,7 @@ if (isset($_SESSION["id"])) {
     // ma non funziona
 
     //$sql = "SELECT carrello.Titolo FROM (contiene INNER JOIN carrello ON contiene.IDProdotto = carello.IDProdotto) ";
-
     //$sql = "SELECT * FROM (contiene INNER JOIN articoli ON contiene.IDProdotto = articoli.IDProdotto)";
-
     //$sql = "SELECT * FROM ((contiene INNER JOIN articoli ON contiene.IDProdotto = articoli.IDProdotto)INNER JOIN carrello ON contiene.IDCarrello = carrello.ID)";
 
 
@@ -52,13 +50,22 @@ if (isset($_SESSION["id"])) {
 
     $result = $conn->query($sql);
 
+    // TODO // 
+    // Aggiungere un bottone/link per rimuovere il prodotto dal carrello 
+    // DELETE FROM `carrello` WHERE `carrello`.`ID` = 0 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
 
             echo "<div class='container articolo'>";
             echo $row["Titolo"];
-            echo "<p class='desc'>" . $row["Descrizione"] . "</p>" . "</div>";
-            echo "<br>";
+
+            echo "<p class='desc'>" . $row["Descrizione"] . "</p>";
+
+            // Chiave primaria di "Contiene"
+            $id = $row["IDCont"];
+
+            echo "<br><a href='removeItemSQL.php?idArticolo=$id'> Rimuovi Articolo </a>";
+            echo "</div><br>";
         }
     } else {
         echo "Nessun articolo nel carrello D:";
