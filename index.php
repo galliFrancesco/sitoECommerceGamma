@@ -47,15 +47,10 @@ if (isset($_SESSION["id"])) {
             echo "<div class='container articolo'>";
 
             echo $row["Titolo"];
-
-
-
             $immagine = $row["imagePath"];
             // uploads\Legosi.jpg
 
             echo "<br><img class='immagine' src='" . $immagine . "'> ";
-
-
             echo '<p class="desc">' . $row["Descrizione"] . "</p>";
 
             $id = $row["IDProdotto"];
@@ -70,8 +65,11 @@ if (isset($_SESSION["id"])) {
                 echo "<br><br><a>Non ci sono abbastanza oggetti</a>";
 
             // 
+
+
+
             if ($IDSession == 0) { // admin
-                echo "<br><br> <a href=''>Elimina Prodotto</a>";
+                echo "<br><br> <a href='deleteProdottoSQL.php?idArticolo=$id'>Elimina Prodotto</a>";
                 echo "<br><a href=''>Modifica Quantità</a>"; 
             }
             echo "</div>";
