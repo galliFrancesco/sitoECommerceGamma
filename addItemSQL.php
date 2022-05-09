@@ -14,30 +14,22 @@ if (isset($_SESSION["id"])) {
 $IDA = $_GET['idArticolo']; // prende l'ID della casa passato tramite il link
 //echo $IDA; // gli passa il numero dell'articolo
 
-
 $sql = "INSERT INTO contiene (IDProdotto, IDCarrello) VALUES ($IDA, $IDSession)";
 
 if ($conn->query($sql) === TRUE) {
+    // Pnrede la quantità di attuale del prodotto 
+    $sqlQuant = "SELECT Quantità FROM articoli WHERE IDProdotto = $IDA"; 
+
+    $result = $conn->query($sqlQuant);
+    $row = $result->fetch_assoc();
+
+    // e la diminuisce 
+    $quantita = $row["Quantità"];  // <- GIUSTO 
+    $quantita --; 
+
+    // modificandola 
+    $sqlUpdate = "UPDATE `articoli` SET `Quantità` = '$quantita' WHERE `articoli`.`IDProdotto` = $IDA";
+    $result = $conn->query($sqlUpdate);
+
     header("location:index.php");
-}
-
-
-/*
-    session_start(); 
-
-    include("connection.php"); 
-    // add Item aggiunge le cose nel carrello 
-
-
-    $idarticolo = 0;
-    if(isset($_GET['idArticolo'])){
-        //echo $_GET['idArticolo'];
-        $idarticolo = $_GET["idArticolo"];
-    }
-
-    //echo $idarticolo; 
-
-    // ID*, IDProdotto, IDCarrello, Quantità
-    // id carrello è da prelevare
-    $sql = "INSERT INTO contiene (IDProdotto) VALUES ($idarticolo)"; 
-    */
+} 

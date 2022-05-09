@@ -50,19 +50,29 @@ if (isset($_SESSION["id"])) {
 
             echo $row["Titolo"];
 
-            $titolo = $row["imagePath"];
+            if ($IDSession == 0) { // admin
+                echo " REMOVE ME, Admin Senpai ";
+            }
 
+            $immagine = $row["imagePath"];
             // uploads\Legosi.jpg
 
-            echo "<br><img class='immagine' src='uploads/" . $titolo . "'> ";
+            echo "<br><img class='immagine' src='" . $immagine . "'> ";
 
+            
             echo '<p class="desc">' . $row["Descrizione"] . "</p>";
 
             $id = $row["IDProdotto"];
 
-            // TODO //
-            // VEDERE SE HO I FILE NELLA CHIAVETTA, SENNò LO DEVO FARE DA CAPO
-            echo "<a href='addItemSQL.php?idArticolo=$id'> Aggiungi al carrello" . "</a>";
+
+            // UPDATE `articoli` SET `imagePath` = 'uploads/banana.png' WHERE `articoli`.`IDProdotto` = 1;
+            $quantita = $row["Quantità"]; 
+            echo "Quantità rimaste: " . $quantita; 
+            if($quantita != 0)
+                echo "<br><a href='addItemSQL.php?idArticolo=$id'> Aggiungi al carrello" . "</a>";
+            else 
+                echo "<br><br><a>Non ci sono abbastanza oggetti</a>"; 
+
             echo "</div>";
         }
     } else {
