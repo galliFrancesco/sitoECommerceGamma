@@ -38,10 +38,7 @@
     if(isset($_POST["quantita"]))
         $quantita = $_POST["quantita"];
 
-
-
-
-    echo $titolo . "<br>" . $descrizione . "<br>" .$venditore. "<br>" . $prezzo. "<br>" . $quantita. "<br>" . $target_file. "<br>"  ;
+    //echo $titolo . "<br>" . $descrizione . "<br>" .$venditore. "<br>" . $prezzo. "<br>" . $quantita. "<br>" . $target_file. "<br>"  ;
     // ------------------
     // TODO //
     // CONTROLLO CHE I CAMPI NON SIANO VUOTI, ALTRIMENTI MANDA DI NUOVO ALL'AGGIUNTA
