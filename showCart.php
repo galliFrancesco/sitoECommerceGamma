@@ -10,8 +10,6 @@ if (isset($_SESSION["id"])) {
     $IDSession = $_SESSION["id"];
 }
 
-// UPDATE `contiene` SET `IDCarrello` = '1' WHERE `contiene`.`ID` = 2; 
-
 ?>
 <!DOCTYPE html>
 <html>

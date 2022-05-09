@@ -21,17 +21,14 @@ if (isset($_SESSION["id"])) {
 <body>
 
     <div class="navBar">
-
-        <a href="login.php">LOGIN</a>
+        IMSTOGRAN
+        <br><br><a href="login.php">LOGIN</a>
         <a href="registrazione.php">REGISTRAZIONE</a>
         <a href="showCart.php"> CARRELLO </a>
 
         <?php
-        echo $IDSession;
-        echo "<br> Buongiorno ";
 
         if ($IDSession == 0) { // admin
-            echo "ADMIN";
             echo '<br><a href="addProdotto.php">Aggiungi Prodotti alla lista</a>';
             // Link per aggiungere oggetti disponibile solo all'admin
         }
@@ -74,7 +71,8 @@ if (isset($_SESSION["id"])) {
 
             // 
             if ($IDSession == 0) { // admin
-                echo "<br><br> modify me senpai ";
+                echo "<br><br> <a href=''>Elimina Prodotto</a>";
+                echo "<br><a href=''>Modifica Quantità</a>"; 
             }
             echo "</div>";
         }
