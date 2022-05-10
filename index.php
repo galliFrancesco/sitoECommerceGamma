@@ -70,7 +70,7 @@ if (isset($_SESSION["id"])) {
 
             if ($IDSession == 0) { // admin
                 echo "<br><br> <a href='deleteProdottoSQL.php?idArticolo=$id'>Elimina Prodotto</a>";
-                echo "<br><a href=''>Modifica Quantità</a>"; 
+                echo "<br><a href='modifyQuantita.php?idArticolo=$id'>Modifica Quantità</a>"; 
             }
             echo "</div>";
         }
