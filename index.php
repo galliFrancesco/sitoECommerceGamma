@@ -21,7 +21,7 @@ if (isset($_SESSION["id"])) {
 <body>
     <!-- NAVBAR -->
     <div class="navBar" style="background-color:#FF9642">
-        
+        BABABA
         <br><a href="showCart.php"><img src="source\cart.png" class="cartBott"> </img></a>
         <a href="login.php"><img src="source\login.png" class="loginBott"></img></a>
         <a href="registrazione.php"><img src="source\plus.png" alt="Registrazione" class="signUpBott"></img></a>
