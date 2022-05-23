@@ -19,12 +19,13 @@ if (isset($_SESSION["id"])) {
 </head>
 
 <body>
-
-    <div class="navBar">
-        IMSTOGRAN
-        <br><br><a href="login.php">LOGIN</a>
-        <a href="registrazione.php">REGISTRAZIONE</a>
-        <a href="showCart.php"> CARRELLO </a>
+    <!-- NAVBAR -->
+    <div class="navBar" style="background-color:#FF9642">
+        
+        <br><a href="showCart.php"><img src="source\cart.png" class="cartBott"> </img></a>
+        <a href="login.php"><img src="source\login.png" class="loginBott"></img></a>
+        <a href="registrazione.php"><img src="source\plus.png" alt="Registrazione" class="signUpBott"></img></a>
+        <p class="titolo">IMSTOGRAN</p>
 
         <?php
 
@@ -35,6 +36,7 @@ if (isset($_SESSION["id"])) {
         ?>
     </div>
 
+    <!-- BODY --> 
     <?php
 
     $sql = "SELECT * FROM articoli";
