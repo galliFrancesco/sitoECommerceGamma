@@ -21,11 +21,6 @@ if (isset($_SESSION["id"])) {
 <body>
     <!-- NAVBAR -->
     <div class="navBar" style="background-color:#FF9642">
-        BABABA
-        <br><a href="showCart.php"><img src="source\cart.png" class="cartBott"> </img></a>
-        <a href="login.php"><img src="source\login.png" class="loginBott"></img></a>
-        <a href="registrazione.php"><img src="source\plus.png" alt="Registrazione" class="signUpBott"></img></a>
-        <p class="titolo">IMSTOGRAN</p>
 
         <?php
 
@@ -34,9 +29,15 @@ if (isset($_SESSION["id"])) {
             // Link per aggiungere oggetti disponibile solo all'admin
         }
         ?>
+        <br><a href="showCart.php"><img src="source\cart.png" class="cartBott"> </img></a>
+        <a href="login.php"><img src="source\login.png" class="loginBott"></img></a>
+        <a href="registrazione.php"><img src="source\plus.png" alt="Registrazione" class="signUpBott"></img></a>
+        <p class="titolo">IMSTOGRAN</p>
+
+
     </div>
 
-    <!-- BODY --> 
+    <!-- BODY -->
     <?php
 
     $sql = "SELECT * FROM articoli";
@@ -72,7 +73,7 @@ if (isset($_SESSION["id"])) {
 
             if ($IDSession == 0) { // admin
                 echo "<br><br> <a href='deleteProdottoSQL.php?idArticolo=$id'>Elimina Prodotto</a>";
-                echo "<br><a href='modifyQuantita.php?idArticolo=$id'>Modifica Quantità</a>"; 
+                echo "<br><a href='modifyQuantita.php?idArticolo=$id'>Modifica Quantità</a>";
             }
             echo "</div>";
         }

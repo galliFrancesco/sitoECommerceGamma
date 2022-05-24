@@ -44,20 +44,24 @@
     // CONTROLLO CHE I CAMPI NON SIANO VUOTI, ALTRIMENTI MANDA DI NUOVO ALL'AGGIUNTA
     // ------------------
 
-    // INSERT INTO articoli (Titolo, Descrizione, Venditore, Prezzo, Quantità, imagePath) VALUES ("CIAO", "un ciao", 2 , 30, 2, "immagina")
-    $sql= "INSERT INTO articoli (Titolo) VALUES ($titolo)";
-    
+    $sql= "INSERT INTO articoli (Titolo, Descrizione, Venditore, Prezzo, Quantità, imagePath) VALUES ('$titolo', '$descrizione', '$venditore' , '$prezzo', '$quantita', '$target_file')";
+    //$sql= "INSERT INTO articoli (Titolo) VALUES ($titolo)";
+    /*
+    echo $titolo."<br>";
+    echo $descrizione."<br>";
+    echo $venditore."<br>";
+    echo $prezzo."<br>";
+    echo $quantita."<br>";
+    echo $target_file."<br>";*/
+
     if ($conn->query($sql) === TRUE) {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             header("location:index.php"); 
             //echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-            echo "tutto a post"; 
         }
-        header("location:addItem.php");  
-        echo "quasi"; 
+        header("location:index.php");  
     }
-    echo "no"; 
-
+	header("location:addProdotto.php"); 
 
     //if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         //header("location:index.php"); 
