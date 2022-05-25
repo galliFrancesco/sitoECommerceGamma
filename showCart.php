@@ -21,9 +21,7 @@ if (isset($_SESSION["id"])) {
 <body>
 
     <div class="navBar">
-
-        <p><a href="index.php">TORNA INDIETRO</a></p>
-
+        <a href="index.php"><img src="source\back.png" class="cartBott"> </img></a>
         <?php
 
         if ($IDSession == 0) { // admin

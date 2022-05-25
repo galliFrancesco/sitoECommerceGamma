@@ -24,8 +24,11 @@ if (isset($_SESSION["id"])) {
 
         <?php
 
+        if ($IDSession == 1) { // utente comune
+            echo "Non sei loggato";
+        }
         if ($IDSession == 0) { // admin
-            echo '<br><a href="addProdotto.php">Aggiungi Prodotti alla lista</a>';
+            echo '<a href="addProdotto.php">Aggiungi Prodotti alla lista</a>';
             // Link per aggiungere oggetti disponibile solo all'admin
         }
         ?>

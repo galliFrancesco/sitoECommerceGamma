@@ -20,7 +20,8 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <div class="container prodotto">
+    <a href="index.php"><img src="source\back.png" class="cartBott"> </img></a>
+        <div class="container prodotto" float="center">
         <form action="checkLogin.php" type="GET"> 
         
             <input type="text" name="user"> <br> 

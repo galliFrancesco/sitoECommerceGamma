@@ -18,6 +18,7 @@ if (isset($_SESSION["id"]) && $_SESSION["id"] == "") {
 </head>
 
 <body>
+<a href="index.php"><img src="source\back.png" class="cartBott"> </img></a>
     <div class="container prodotto">
         <form action="registrazioneSQL.php" type="GET">
 
@@ -30,7 +31,6 @@ if (isset($_SESSION["id"]) && $_SESSION["id"] == "") {
             <br> Ripeti Password <input type="password" name="pass2">
             
             <br><br><button type="submit">INSERISCI UTENTE </button>
-            <p> TORNA ALLA HOME <a href="index.php"> qui </a></p>
     </div>
     </form>
 </body>
